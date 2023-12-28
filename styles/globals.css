@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  @apply bg-black h-full;
+}
+
+body {
+  @apply bg-black h-full;
+}
+
+.login__container {
+  @apply flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none bg-sky-900 transition-all;
+}
+
+.login__container-wrapper {
+  @apply relative w-full lg:w-3/6 my-6 lg:max-w-3xl mx-auto h-full lg:h-auto;
+}
+
+.login__container-content {
+  @apply h-full lg:h-auto border-0 rounded-lg shadow-lg relative flex justify-center items-center flex-col w-full bg-black outline-none focus:outline-none;
+}
+
+.login__container-heading {
+  @apply text-white text-3xl font-bold;
+}
+.login__container-input {
+  @apply w-full p-4 text-lg bg-black border-2 border-neutral-800 rounded-md outline-none text-white focus:border-sky-500 focus:border-2 transition-all disabled:bg-neutral-900 disabled:opacity-70 disabled:cursor-not-allowed lg:min-w-[600px];
+}
+.login__container-button {
+  @apply p-4 text-lg bg-white border-2 border-neutral-800 rounded-full outline-none text-black focus:border-sky-500 focus:border-2 transition-all disabled:bg-neutral-900 disabled:opacity-70 disabled:cursor-not-allowed lg:min-w-[600px] hover:bg-gray-300;
+}
+
+.login__container-link {
+  @apply text-white cursor-pointer font-semibold transition-all hover:text-sky-500;
+}
+
+.sidebar__container {
+  @apply relative rounded-full h-14 w-14 flex items-center justify-center p-4 hover:bg-slate-500 hover:bg-opacity-10 cursor-pointer lg:hidden;
+}
+.sidebar__container-icons {
+  @apply relative hidden lg:flex items-center gap-4 p-4 rounded-full hover:bg-slate-300 hover:bg-opacity-10 cursor-pointer;
+}
+
+.sidebar__logo {
+  @apply rounded-full h-14 w-14 p-4 flex items-center justify-center hover:bg-blue-300 hover:bg-opacity-10 cursor-pointer transition-all;
+}
+
+.sidebar__tweet-container {
+  @apply mt-6 lg:hidden rounded-full h-14 w-14 p-4 flex items-center justify-center bg-sky-500 hover:bg-opacity-10 transition-all cursor-pointer;
+}
+.sidebar__tweet-container-text {
+  @apply hidden lg:block mt-6 px-4 py-4 rounded-full bg-sky-500 hover:bg-opacity-10 cursor-pointer transition-all;
+}
