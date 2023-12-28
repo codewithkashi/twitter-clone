@@ -3,7 +3,7 @@ import { NotificationSkelton } from "@components/Skeltons";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { BsTwitter } from "react-icons/bs";
-const NotificationsFeed = ({ userId }: { userId: string }) => {
+const NotificationsFeed = ({ userId }: { userId?: string }) => {
   const [notifications, setNotifications] = useState([]);
   useEffect(() => {
     const fetchNotifications = async () => {

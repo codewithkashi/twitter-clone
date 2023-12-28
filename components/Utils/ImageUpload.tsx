@@ -28,7 +28,7 @@ const ImageUpload = ({
     onDrop: handleDrop,
     disabled,
     accept: {
-      "image/jepg": [],
+      "image/*": [],
       "image/png": [],
       "image/jpg": [],
     },

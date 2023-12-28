@@ -6,11 +6,10 @@ import { JwtPayload } from "jsonwebtoken";
 export const isAuth = async (req: NextApiRequest, res: NextApiResponse) => {
   const { token } = req.cookies;
   if (!token) {
-    res.json({
+    return res.status(200).json({
       success: false,
       message: "Login First",
     });
-    return false;
   }
   const decodedToken = jwt.verify(token, "kashif") as JwtPayload;
   const user = await prisma.user.findUnique({
@@ -22,10 +21,9 @@ export const isAuth = async (req: NextApiRequest, res: NextApiResponse) => {
   if (user) {
     return user;
   } else {
-    res.json({
+    return res.status(200).json({
       success: false,
       message: "Invalid Cookie",
     });
-    return false;
   }
 };

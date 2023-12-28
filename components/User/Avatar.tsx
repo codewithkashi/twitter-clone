@@ -24,7 +24,7 @@ const Avatar = ({
     >
       {profileImage ? (
         <Image
-          src={"/kashif.JPG"}
+          src={profileImage}
           fill
           alt="Avatar"
           className={`object-cover rounded-full`}

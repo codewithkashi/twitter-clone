@@ -1,6 +1,7 @@
 import { isAuth } from "@libs/serverAuth";
 import { NextApiRequest, NextApiResponse } from "next";
 import prisma from "@libs/prismadb";
+import uploadFile from "@libs/uploader";
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
@@ -14,7 +15,7 @@ export default async function handler(
   try {
     const user = await isAuth(req, res);
     if (!user) {
-      return res.json({
+      return res.status(200).json({
         success: false,
         message: "Login First",
       });
@@ -26,6 +27,8 @@ export default async function handler(
         message: "Name and Username can't be empty",
       });
     }
+    const profile_img = await uploadFile(profileImage);
+    const cover_img = await uploadFile(coverImage);
     const updatedUser = await prisma.user.update({
       where: {
         id: user.id,
@@ -34,8 +37,8 @@ export default async function handler(
         name,
         username,
         bio,
-        profileImage,
-        coverImage,
+        profileImage: profile_img,
+        coverImage: cover_img,
       },
     });
     res.json({
