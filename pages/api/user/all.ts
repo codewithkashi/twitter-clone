@@ -1,7 +1,10 @@
 import { NextApiResponse, NextApiRequest } from "next";
 import prisma from "@libs/prismadb";
 import { isAuth } from "@libs/serverAuth";
+import Cors from "cors";
+import { runMiddleware } from "@libs/Cors";
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+  await runMiddleware(req, res, Cors());
   if (req.method !== "GET") {
     return res.json({
       success: false,

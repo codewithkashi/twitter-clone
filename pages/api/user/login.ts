@@ -3,7 +3,10 @@ import cookie from "cookie";
 import jwt from "jsonwebtoken";
 import prisma from "@libs/prismadb";
 import { NextApiRequest, NextApiResponse } from "next";
+import Cors from "cors";
+import { runMiddleware } from "@libs/Cors";
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+  await runMiddleware(req, res, Cors());
   if (req.method !== "POST") {
     return res.json({
       success: false,
